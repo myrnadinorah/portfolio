@@ -3,7 +3,7 @@ name: Deploy Streamlit App
 on:
   push:
     branches:
-      - main  # Cambia esto si tu rama principal tiene otro nombre
+      - main
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9"  # Asegúrate de que sea compatible con Streamlit
+          python-version: "3.9"
 
       - name: Install dependencies
         run: |
@@ -26,6 +26,5 @@ jobs:
       - name: Set environment variables
         run: echo "MYSQL_CONNECTION_STRING=${{ secrets.MYSQL_CONNECTION_STRING }}" >> $GITHUB_ENV
 
-      - name: Run Streamlit App
-        run: |
-          streamlit run portfolio.py --server.port 8501
+      - name: Verify Streamlit Installation
+        run: python -c "import streamlit; print('Streamlit is installed and ready!')"
