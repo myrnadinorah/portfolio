@@ -28,6 +28,5 @@ jobs:
 
       - name: Verify Streamlit Installation
         run: |
-          python -c 'import os; print(f"MySQL String: {os.getenv(\"MYSQL_CONNECTION_STRING\")}");'
-
+          python -c 'import os; print("MySQL String: {}".format(os.getenv("MYSQL_CONNECTION_STRING")))'
 
