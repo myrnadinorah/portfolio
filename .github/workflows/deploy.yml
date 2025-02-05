@@ -27,4 +27,4 @@ jobs:
         run: echo "MYSQL_CONNECTION_STRING=${{ secrets.MYSQL_CONNECTION_STRING }}" >> $GITHUB_ENV
 
       - name: Verify Streamlit Installation
-        run: python -c "import streamlit; print('Streamlit is installed and ready!')"
+        run: python -c "import os; print(f'MySQL String: {os.getenv("MYSQL_CONNECTION_STRING")}')"
