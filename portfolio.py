@@ -10,10 +10,10 @@ load_dotenv()
 
 mysql_connection_string = os.getenv("MYSQL_CONNECTION_STRING")
 
-if not mysql_connection_string:
-    st.error("MySQL connection string is missing. Check your .env file.")
-    st.stop()
-    
+if mysql_connection_string:
+    st.success("MySQL connection string loaded successfully!")
+else:
+    st.error("MySQL connection string is missing. Check your environment variables.")
 
 engine = create_engine(mysql_connection_string)
 
