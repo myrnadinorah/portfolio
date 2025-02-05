@@ -1,2 +1,31 @@
-env:
-  MYSQL_CONNECTION_STRING: ${{ secrets.MYSQL_CONNECTION_STRING }}
+name: Deploy Streamlit App
+
+on:
+  push:
+    branches:
+      - main  # Cambia esto si tu rama principal tiene otro nombre
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"  # Asegúrate de que sea compatible con Streamlit
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Set environment variables
+        run: echo "MYSQL_CONNECTION_STRING=${{ secrets.MYSQL_CONNECTION_STRING }}" >> $GITHUB_ENV
+
+      - name: Run Streamlit App
+        run: |
+          streamlit run app.py --server.port 8501
