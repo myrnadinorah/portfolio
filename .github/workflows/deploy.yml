@@ -28,7 +28,9 @@ jobs:
           echo "MYSQL_CONNECTION_STRING=${{ secrets.MYSQL_CONNECTION_STRING }}"
 
       - name: Set environment variables
-        run: echo "MYSQL_CONNECTION_STRING=${{ secrets.MYSQL_CONNECTION_STRING }}" >> $GITHUB_ENV
+        run: |
+          echo "MYSQL_CONNECTION_STRING=${{ secrets.MYSQL_CONNECTION_STRING }}" >> $GITHUB_ENV
+          export MYSQL_CONNECTION_STRING="${{ secrets.MYSQL_CONNECTION_STRING }}"
 
       - name: Verify Streamlit Installation
         run: |
