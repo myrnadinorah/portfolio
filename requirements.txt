@@ -1,7 +1,7 @@
 streamlit
 pandas
-plotly
-SQLAlchemy
-python-dotenv
+sqlalchemy
 pymysql
-os
+python-dotenv  # Only if you later add a .env file
+plotly
+boto3  # If working with AWS Secrets Manager
