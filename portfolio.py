@@ -12,8 +12,8 @@ mysql_connection_string = os.getenv("MYSQL_CONNECTION_STRING")
 
 if mysql_connection_string:
     st.success("MySQL connection string loaded successfully!")
-    st.write(f"Connection String (first 20 chars): {mysql_connection_string[:150]}...")  # Solo muestra parte
-    st.write(f"🔍 Debug: {mysql_connection_string}")  # Show full connection string temporarily
+    #st.write(f"Connection String (first 20 chars): {mysql_connection_string[:150]}...")  # Solo muestra parte
+    #st.write(f"🔍 Debug: {mysql_connection_string}")  # Show full connection string temporarily
 
 else:
     st.error("MySQL connection string is missing. Check your environment variables.")
