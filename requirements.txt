@@ -4,3 +4,4 @@ plotly
 SQLAlchemy
 python-dotenv
 pymysql
+os
